@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authorRoute = require('./routes/authors');
+const logger = require("./logger")
 
 const PORT = 3000;
 const app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(logger)
 
 app.use('/authors', authorRoute);
 
